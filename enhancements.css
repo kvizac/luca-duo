@@ -1,91 +1,75 @@
-/* Luča visual refinements — mobile portraits, animated identity, button geometry */
+/* Luča visual refinements — mobile portraits, static identity, button geometry */
 
+/* Elegant static wordmark. No animated symbol: the name itself is the identity. */
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 13px;
   font-family: var(--serif);
 }
 .brand-word {
-  font-size: 31px;
-  letter-spacing: -.025em;
+  position: relative;
+  display: inline-block;
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -.045em;
   transform: translateY(-1px);
 }
-.luca-logo-mark {
-  width: 34px;
-  height: 34px;
-  display: inline-grid;
-  place-items: center;
-  flex: 0 0 auto;
+.brand-word::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: -2px;
+  bottom: -7px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), rgba(218,173,151,.18));
 }
-.luca-logo-mark svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+.brand-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--sans);
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: .24em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: rgba(240,237,230,.62);
+  white-space: nowrap;
 }
-.luca-logo-mark .logo-stroke,
-.hero-logo-mark .logo-stroke {
-  fill: none;
-  stroke: var(--ivory);
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  vector-effect: non-scaling-stroke;
-  stroke-dasharray: 120;
-  stroke-dashoffset: 120;
-  animation: lucaDraw 1.8s cubic-bezier(.22,.7,.2,1) .15s forwards;
+.brand-tag::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: rgba(166,107,79,.7);
 }
-.luca-logo-mark .logo-accent,
-.hero-logo-mark .logo-accent {
-  fill: var(--accent);
-  transform-origin: center;
-  animation: lucaPulse 3.2s ease-in-out 1.4s infinite;
-}
-.luca-logo-mark .logo-orbit,
-.hero-logo-mark .logo-orbit {
-  fill: none;
-  stroke: rgba(218,173,151,.72);
-  stroke-width: .75;
-  stroke-linecap: round;
-  stroke-dasharray: 2 4;
-  transform-origin: 24px 24px;
-  animation: lucaOrbit 13s linear infinite;
-}
-.site-header.scrolled .luca-logo-mark {
-  filter: drop-shadow(0 0 10px rgba(166,107,79,.18));
+.site-header.scrolled .brand-word::after {
+  background: linear-gradient(90deg, #c18a70, rgba(218,173,151,.12));
 }
 
-.hero-logo-mark {
-  width: 76px;
-  height: 76px;
-  margin: 0 auto 2px;
-  opacity: .98;
-  filter: drop-shadow(0 4px 22px rgba(0,0,0,.45));
-}
-.hero-logo-mark svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-.hero-logo-mark .logo-stroke {
-  stroke-width: 1.1;
-}
-.hero-logo-mark + h1 {
-  margin-top: -7px;
-}
+/* Hero title doubles as the main logotype. */
 .hero h1 {
   position: relative;
+  font-weight: 500;
+  letter-spacing: -.06em;
+  text-rendering: geometricPrecision;
 }
 .hero h1::after {
   content: "";
   position: absolute;
-  width: 62%;
+  width: 54%;
   height: 1px;
-  left: 19%;
-  bottom: -12px;
-  background: linear-gradient(90deg, transparent, rgba(166,107,79,.75), transparent);
-  transform: scaleX(0);
-  animation: lucaUnderline 1.3s cubic-bezier(.2,.7,.2,1) 1.25s forwards;
+  left: 23%;
+  bottom: -13px;
+  background: linear-gradient(90deg, transparent, rgba(193,138,112,.88) 22%, rgba(193,138,112,.88) 78%, transparent);
+}
+.eyebrow {
+  color: rgba(238,216,205,.88);
+}
+.names {
+  text-shadow: 0 3px 24px rgba(0,0,0,.7);
 }
 
 /* True optical centering for button labels; icons sit independently on the right. */
@@ -206,12 +190,6 @@
     linear-gradient(110deg, transparent 43%, rgba(166,107,79,.035) 50%, transparent 57%);
   mix-blend-mode: screen;
 }
-.eyebrow {
-  color: rgba(238,216,205,.88);
-}
-.names {
-  text-shadow: 0 3px 24px rgba(0,0,0,.7);
-}
 
 /* MOBILE: both portraits stay readable as two deliberate panels. */
 @media (max-width: 760px) {
@@ -219,14 +197,16 @@
     padding: 0 16px;
   }
   .brand {
-    gap: 8px;
+    gap: 0;
   }
   .brand-word {
-    font-size: 26px;
+    font-size: 30px;
   }
-  .luca-logo-mark {
-    width: 28px;
-    height: 28px;
+  .brand-word::after {
+    bottom: -6px;
+  }
+  .brand-tag {
+    display: none;
   }
 
   .hero {
@@ -285,30 +265,22 @@
   .reveal--hero.is-visible {
     transform: translate(-50%,-48%);
   }
-  .hero-logo-mark {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 0;
-  }
-  .hero-logo-mark + h1 {
-    margin-top: -5px;
-  }
   .hero h1 {
-    font-size: clamp(74px, 22vw, 92px);
+    font-size: clamp(78px, 23vw, 96px);
     line-height: .78;
   }
   .hero h1::after {
-    bottom: -9px;
-    width: 54%;
-    left: 23%;
+    bottom: -10px;
+    width: 48%;
+    left: 26%;
   }
   .eyebrow {
-    margin-bottom: 3px;
+    margin-bottom: 7px;
     font-size: 9px;
     letter-spacing: .28em;
   }
   .names {
-    margin-top: 18px;
+    margin-top: 20px;
     font-size: 29px;
   }
   .ornament {
@@ -363,12 +335,8 @@
     top: 50%;
     width: 92vw;
   }
-  .hero-logo-mark {
-    width: 50px;
-    height: 50px;
-  }
   .hero h1 {
-    font-size: 78px;
+    font-size: 82px;
   }
   .hero-copy {
     font-size: 15px;
@@ -382,36 +350,5 @@
   }
   .musician-tag--right {
     bottom: 14%;
-  }
-}
-
-@keyframes lucaDraw {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes lucaPulse {
-  0%, 100% { transform: scale(.9); opacity: .68; }
-  50% { transform: scale(1.25); opacity: 1; }
-}
-@keyframes lucaOrbit {
-  to { transform: rotate(360deg); }
-}
-@keyframes lucaUnderline {
-  to { transform: scaleX(1); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .luca-logo-mark .logo-stroke,
-  .hero-logo-mark .logo-stroke {
-    stroke-dashoffset: 0;
-  }
-  .luca-logo-mark .logo-accent,
-  .hero-logo-mark .logo-accent,
-  .luca-logo-mark .logo-orbit,
-  .hero-logo-mark .logo-orbit,
-  .hero h1::after {
-    animation: none !important;
-  }
-  .hero h1::after {
-    transform: scaleX(1);
   }
 }
