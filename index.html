@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <meta property="og:title" content="Luča — Vanja & Duća" />
+  <meta property="og:description" content="Violina i gitara. Klasika, tango, filmska muzika i pažljivo odabrane obrade." />
+  <meta name="description" content="Luča — Vanja & Duća. Violina i gitara. Klasika, tango, filmska muzika i pažljivo odabrane obrade." />
+  <title>Luča — Vanja & Duća</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="string-line" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Luča početna">Luča</a>
+    <nav class="desktop-nav" aria-label="Glavna navigacija">
+      <a href="#o-nama">O nama</a>
+      <a href="#repertoar">Repertoar</a>
+      <a href="#video">Video</a>
+      <a href="#nastupi">Nastupi</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Otvori meni" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="mobile-menu" aria-label="Mobilna navigacija">
+    <a href="#o-nama">O nama</a>
+    <a href="#repertoar">Repertoar</a>
+    <a href="#video">Video</a>
+    <a href="#nastupi">Nastupi</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-photo hero-photo--duca" role="img" aria-label="Duća, gitara"></div>
+      <div class="hero-photo hero-photo--vanja" role="img" aria-label="Vanja, violina"></div>
+
+      <div class="hero-shade" aria-hidden="true"></div>
+
+      <div class="musician-tag musician-tag--left reveal">
+        <strong>Duća</strong><span>gitara</span>
+      </div>
+      <div class="musician-tag musician-tag--right reveal">
+        <strong>Vanja</strong><span>violina</span>
+      </div>
+
+      <div class="hero-center reveal reveal--hero">
+        <p class="eyebrow">VIOLINA · GITARA</p>
+        <h1 id="hero-title">Luča</h1>
+        <p class="names">Vanja &amp; Duća</p>
+        <div class="ornament" aria-hidden="true">✦</div>
+        <p class="hero-copy">Klasična muzika, tango, filmske teme<br class="desktop-only" /> i pažljivo odabrane obrade.</p>
+        <div class="hero-actions">
+          <a class="btn btn--light" href="#video">Poslušajte <span>▶</span></a>
+          <a class="btn btn--ghost" href="#kontakt">Booking</a>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#o-nama" aria-label="Skroluj naniže">
+        <span></span>
+      </a>
+    </section>
+
+    <section class="intro section section--ivory" id="o-nama">
+      <div class="section-kicker reveal">O nama</div>
+      <div class="intro-grid">
+        <div class="intro-copy reveal">
+          <p class="dropcap">Luča je akustični duo koji spaja toplinu violine i izražajnost gitare u intiman, elegantan i emotivan zvuk.</p>
+          <p>Vanja i Duća grade repertoar na susretu klasike, tanga, filmske muzike i savremenih obrada. Njihovi nastupi su zamišljeni kao diskretan, živ razgovor dva instrumenta — dovoljno upečatljiv za koncert, a dovoljno nenametljiv za posebne događaje.</p>
+        </div>
+        <div class="fact-grid">
+          <article class="fact reveal"><span class="fact-icon">♩</span><h3>Dva instrumenta</h3><p>jedan glas</p></article>
+          <article class="fact reveal"><span class="fact-icon">♡</span><h3>Muzika</h3><p>koja stvara uspomene</p></article>
+          <article class="fact reveal"><span class="fact-icon">⌖</span><h3>Dostupni</h3><p>u Srbiji i regionu</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section repertoire" id="repertoar">
+      <div class="section-heading reveal">
+        <p>Repertoar</p>
+        <h2>Od Baha do Piazzolle.<br />I dalje.</h2>
+      </div>
+
+      <div class="repertoire-list">
+        <button class="rep-row reveal" data-preview="Klasika" data-image="vanja">
+          <span>01</span><strong>Klasika</strong><em>Bach · Vivaldi · Mozart · Saint-Saëns</em><i>↗</i>
+        </button>
+        <button class="rep-row reveal" data-preview="Tango" data-image="duca">
+          <span>02</span><strong>Tango</strong><em>Piazzolla · Gardel · tradicionalni tango</em><i>↗</i>
+        </button>
+        <button class="rep-row reveal" data-preview="Filmska muzika" data-image="vanja">
+          <span>03</span><strong>Filmska muzika</strong><em>Morricone · Williams · Rota · Zimmer</em><i>↗</i>
+        </button>
+        <button class="rep-row reveal" data-preview="Obrade" data-image="duca">
+          <span>04</span><strong>Obrade</strong><em>Beatles · Sting · jazz standardi · regionalne teme</em><i>↗</i>
+        </button>
+        <button class="rep-row reveal" data-preview="Muzika po želji" data-image="vanja">
+          <span>05</span><strong>Muzika po želji</strong><em>Posebni aranžmani za vaš događaj</em><i>↗</i>
+        </button>
+      </div>
+
+      <aside class="rep-preview" aria-hidden="true">
+        <div class="rep-preview-image"></div>
+        <span class="rep-preview-label">Luča</span>
+      </aside>
+    </section>
+
+    <section class="section section--ivory video-section" id="video">
+      <div class="section-heading section-heading--dark reveal">
+        <p>Video / poslušajte nas</p>
+        <h2>Dva snimka.<br />Jedan karakter.</h2>
+      </div>
+
+      <div class="video-grid video-grid--two">
+        <button class="video-card video-card--feature reveal"
+                data-title="Luča — Live Session I"
+                data-subtitle="Vanja & Duća"
+                data-youtube="uryvPMrOgmM"
+                data-youtube-url="https://youtu.be/uryvPMrOgmM"
+                data-orientation="landscape"
+                aria-label="Pusti prvi Luča video">
+          <div class="video-image video-image--vanja"></div>
+          <span class="video-index">01</span>
+          <span class="play">▶</span>
+          <div class="video-meta"><strong>Live Session I</strong><small>Vanja &amp; Duća · YouTube</small></div>
+        </button>
+        <button class="video-card video-card--feature reveal"
+                data-title="Luča — Live Session II"
+                data-subtitle="Vanja & Duća"
+                data-youtube="uPFPooA_qOw"
+                data-youtube-url="https://youtube.com/shorts/uPFPooA_qOw"
+                data-orientation="portrait"
+                aria-label="Pusti drugi Luča video">
+          <div class="video-image video-image--duca"></div>
+          <span class="video-index">02</span>
+          <span class="play">▶</span>
+          <div class="video-meta"><strong>Live Session II</strong><small>Vanja &amp; Duća · YouTube Short</small></div>
+        </button>
+      </div>
+      <p class="video-note reveal">Oba snimka se otvaraju direktno na sajtu, bez napuštanja stranice.</p>
+    </section>
+
+    <section class="section occasions" id="nastupi">
+      <div class="section-heading reveal">
+        <p>Gde nastupamo</p>
+        <h2>Muzika koja pripada prostoru.</h2>
+      </div>
+      <div class="occasion-grid">
+        <article class="occasion-card reveal"><span>⌂</span><h3>Koncerti</h3><p>Kamerni programi, kulturni centri, galerije i posebne večeri.</p></article>
+        <article class="occasion-card reveal"><span>◎</span><h3>Venčanja</h3><p>Ceremonije, kokteli i elegantna muzička pratnja ključnih trenutaka.</p></article>
+        <article class="occasion-card reveal"><span>♢</span><h3>Privatni događaji</h3><p>Večere, jubileji i intimne proslave sa pažljivo odabranim repertoarom.</p></article>
+        <article class="occasion-card reveal"><span>▣</span><h3>Korporativni eventi</h3><p>Prijemi, brend događaji i poslovne večeri bez generičnog „event benda“.</p></article>
+      </div>
+    </section>
+
+    <section class="quote-section" aria-label="Citirana poruka">
+      <div class="quote-photo" aria-hidden="true"></div>
+      <blockquote class="reveal">„Ne sviramo da bismo ispunili tišinu.<br />Sviramo da bismo joj dali smisao.“</blockquote>
+    </section>
+
+    <section class="section contact section--ivory" id="kontakt">
+      <div class="contact-head reveal">
+        <p>Kontakt / booking</p>
+        <h2>Recite nam gde.<br />Mi donosimo muziku.</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-details reveal">
+          <a href="mailto:info@luca-duo.com"><span>Email</span>info@luca-duo.com</a>
+          <a href="tel:+38163123456"><span>Telefon</span>+381 63 123 456</a>
+          <a href="https://instagram.com/" target="_blank" rel="noreferrer"><span>Instagram</span>@luca.duo</a>
+          <p><span>Lokacija</span>Srbija · region · po dogovoru</p>
+          <small>Kontakt podaci su trenutno demo i biće zamenjeni pravim.</small>
+        </div>
+
+        <form class="contact-form reveal" id="booking-form">
+          <label>
+            <span>Ime i prezime</span>
+            <input type="text" name="name" placeholder="Vaše ime" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" placeholder="ime@email.com" required />
+          </label>
+          <div class="form-row">
+            <label>
+              <span>Datum</span>
+              <input type="date" name="date" />
+            </label>
+            <label>
+              <span>Tip događaja</span>
+              <select name="event">
+                <option>Venčanje</option>
+                <option>Koncert</option>
+                <option>Privatni događaj</option>
+                <option>Korporativni event</option>
+                <option>Drugo</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            <span>Poruka</span>
+            <textarea name="message" rows="4" placeholder="Mesto, vreme, okvirno trajanje i sve što mislite da treba da znamo..."></textarea>
+          </label>
+          <button class="btn btn--dark" type="submit">Pošaljite upit <span>→</span></button>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><strong>Luča</strong><span>Vanja &amp; Duća</span></div>
+    <p>© <span id="year"></span> Luča. Sva prava zadržana.</p>
+    <a href="#top">Nazad na vrh ↑</a>
+  </footer>
+
+  <a class="mobile-booking" href="#kontakt">Booking <span>→</span></a>
+
+  <dialog class="video-modal" id="video-modal">
+    <button class="modal-close" aria-label="Zatvori video">×</button>
+    <div class="modal-player">
+      <iframe id="youtube-player" title="Luča video" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <div class="modal-copy">
+      <p>Luča / video</p>
+      <h3 id="modal-title">Video</h3>
+      <span id="modal-subtitle"></span>
+      <a id="youtube-link" href="#" target="_blank" rel="noreferrer">Otvori na YouTube-u ↗</a>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
