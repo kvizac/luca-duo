@@ -4,6 +4,52 @@ const mobileMenu = document.querySelector('.mobile-menu');
 const mobileBooking = document.querySelector('.mobile-booking');
 const stringDot = document.querySelector('.string-line span');
 
+// Load the refinement layer separately so the original prototype stays easy to maintain.
+const refinementStyles = document.createElement('link');
+refinementStyles.rel = 'stylesheet';
+refinementStyles.href = 'enhancements.css';
+document.head.appendChild(refinementStyles);
+
+// Reusable Luča mark: an abstract L/string + bow orbit with a warm accent point.
+const logoMarkup = (className = 'luca-logo-mark') => `
+  <span class="${className}" aria-hidden="true">
+    <svg viewBox="0 0 48 48" focusable="false">
+      <path class="logo-stroke" d="M18 8v26c0 4 2.6 6 6.7 6H35" />
+      <path class="logo-stroke" d="M15 15c4.5-4.8 10.8-7 17.2-5.8" />
+      <path class="logo-stroke" d="M20.5 31.5c6.8-1.1 12.1-5.6 14.5-12.5" />
+      <ellipse class="logo-orbit" cx="24" cy="24" rx="18" ry="9.5" transform="rotate(-32 24 24)" />
+      <circle class="logo-accent" cx="35.2" cy="12.7" r="2.2" />
+    </svg>
+  </span>`;
+
+// Animated identity in the header and a larger mark in the hero.
+const brand = document.querySelector('.brand');
+if (brand) {
+  brand.innerHTML = `${logoMarkup()}<span class="brand-word">Luča</span>`;
+}
+
+const heroTitle = document.querySelector('#hero-title');
+if (heroTitle && !document.querySelector('.hero-logo-mark')) {
+  heroTitle.insertAdjacentHTML('beforebegin', logoMarkup('hero-logo-mark'));
+}
+
+// Consistent, optically centered labels + bespoke line icons.
+const icons = {
+  play: `<svg viewBox="0 0 24 24"><path class="fill" d="M9 7.3 17 12l-8 4.7z"/></svg>`,
+  booking: `<svg viewBox="0 0 24 24"><path d="M7 4v3M17 4v3M5 9h14M6.5 6h11A1.5 1.5 0 0 1 19 7.5v10A1.5 1.5 0 0 1 17.5 19h-11A1.5 1.5 0 0 1 5 17.5v-10A1.5 1.5 0 0 1 6.5 6Z"/><path d="m9.5 14 1.6 1.6 3.5-3.7"/></svg>`,
+  send: `<svg viewBox="0 0 24 24"><path d="M4.5 12h14M14 7.5 18.5 12 14 16.5"/></svg>`
+};
+
+const styleButton = (element, label, icon) => {
+  if (!element) return;
+  element.innerHTML = `<span class="btn-label">${label}</span><span class="btn-icon" aria-hidden="true">${icon}</span>`;
+};
+
+styleButton(document.querySelector('.hero-actions .btn--light'), 'Poslušajte', icons.play);
+styleButton(document.querySelector('.hero-actions .btn--ghost'), 'Booking', icons.booking);
+styleButton(document.querySelector('#booking-form button[type="submit"]'), 'Pošaljite upit', icons.send);
+styleButton(mobileBooking, 'Booking', icons.booking);
+
 // Header + subtle string motion tied to scroll.
 const onScroll = () => {
   const y = window.scrollY;
@@ -117,10 +163,11 @@ const bookingForm = document.querySelector('#booking-form');
 bookingForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const status = bookingForm.querySelector('.form-status');
+  const submit = bookingForm.querySelector('button[type="submit"]');
   status.textContent = 'Demo forma radi. Kada dobijemo pravi email/backend, povezujemo slanje upita.';
-  bookingForm.querySelector('button[type="submit"]').textContent = 'Upit spreman ✓';
+  styleButton(submit, 'Upit spreman ✓', icons.send);
   setTimeout(() => {
-    bookingForm.querySelector('button[type="submit"]').innerHTML = 'Pošaljite upit <span>→</span>';
+    styleButton(submit, 'Pošaljite upit', icons.send);
   }, 3000);
 });
 
