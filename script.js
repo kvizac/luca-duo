@@ -10,27 +10,10 @@ refinementStyles.rel = 'stylesheet';
 refinementStyles.href = 'enhancements.css';
 document.head.appendChild(refinementStyles);
 
-// Reusable Luča mark: an abstract L/string + bow orbit with a warm accent point.
-const logoMarkup = (className = 'luca-logo-mark') => `
-  <span class="${className}" aria-hidden="true">
-    <svg viewBox="0 0 48 48" focusable="false">
-      <path class="logo-stroke" d="M18 8v26c0 4 2.6 6 6.7 6H35" />
-      <path class="logo-stroke" d="M15 15c4.5-4.8 10.8-7 17.2-5.8" />
-      <path class="logo-stroke" d="M20.5 31.5c6.8-1.1 12.1-5.6 14.5-12.5" />
-      <ellipse class="logo-orbit" cx="24" cy="24" rx="18" ry="9.5" transform="rotate(-32 24 24)" />
-      <circle class="logo-accent" cx="35.2" cy="12.7" r="2.2" />
-    </svg>
-  </span>`;
-
-// Animated identity in the header and a larger mark in the hero.
+// Static Luča wordmark lockup: elegant, typographic, no animated symbol.
 const brand = document.querySelector('.brand');
 if (brand) {
-  brand.innerHTML = `${logoMarkup()}<span class="brand-word">Luča</span>`;
-}
-
-const heroTitle = document.querySelector('#hero-title');
-if (heroTitle && !document.querySelector('.hero-logo-mark')) {
-  heroTitle.insertAdjacentHTML('beforebegin', logoMarkup('hero-logo-mark'));
+  brand.innerHTML = `<span class="brand-word">Luča</span><span class="brand-tag">violina · gitara</span>`;
 }
 
 // Consistent, optically centered labels + bespoke line icons.
