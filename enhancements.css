@@ -1,0 +1,417 @@
+/* Luča visual refinements — mobile portraits, animated identity, button geometry */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+}
+.brand-word {
+  font-size: 31px;
+  letter-spacing: -.025em;
+  transform: translateY(-1px);
+}
+.luca-logo-mark {
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+.luca-logo-mark svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.luca-logo-mark .logo-stroke,
+.hero-logo-mark .logo-stroke {
+  fill: none;
+  stroke: var(--ivory);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: lucaDraw 1.8s cubic-bezier(.22,.7,.2,1) .15s forwards;
+}
+.luca-logo-mark .logo-accent,
+.hero-logo-mark .logo-accent {
+  fill: var(--accent);
+  transform-origin: center;
+  animation: lucaPulse 3.2s ease-in-out 1.4s infinite;
+}
+.luca-logo-mark .logo-orbit,
+.hero-logo-mark .logo-orbit {
+  fill: none;
+  stroke: rgba(218,173,151,.72);
+  stroke-width: .75;
+  stroke-linecap: round;
+  stroke-dasharray: 2 4;
+  transform-origin: 24px 24px;
+  animation: lucaOrbit 13s linear infinite;
+}
+.site-header.scrolled .luca-logo-mark {
+  filter: drop-shadow(0 0 10px rgba(166,107,79,.18));
+}
+
+.hero-logo-mark {
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 2px;
+  opacity: .98;
+  filter: drop-shadow(0 4px 22px rgba(0,0,0,.45));
+}
+.hero-logo-mark svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.hero-logo-mark .logo-stroke {
+  stroke-width: 1.1;
+}
+.hero-logo-mark + h1 {
+  margin-top: -7px;
+}
+.hero h1 {
+  position: relative;
+}
+.hero h1::after {
+  content: "";
+  position: absolute;
+  width: 62%;
+  height: 1px;
+  left: 19%;
+  bottom: -12px;
+  background: linear-gradient(90deg, transparent, rgba(166,107,79,.75), transparent);
+  transform: scaleX(0);
+  animation: lucaUnderline 1.3s cubic-bezier(.2,.7,.2,1) 1.25s forwards;
+}
+
+/* True optical centering for button labels; icons sit independently on the right. */
+.btn,
+.mobile-booking {
+  position: relative;
+}
+.btn-label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+}
+.btn-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  opacity: .72;
+  transition: transform .25s ease, opacity .25s ease, background .25s ease;
+}
+.btn-icon svg {
+  width: 12px;
+  height: 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.btn-icon .fill {
+  fill: currentColor;
+  stroke: none;
+}
+.btn:hover .btn-icon,
+.mobile-booking:hover .btn-icon {
+  transform: translateY(-50%) translateX(2px);
+  opacity: 1;
+}
+.btn--light .btn-icon {
+  border-color: rgba(23,23,23,.35);
+}
+.btn--ghost .btn-icon {
+  border-color: rgba(240,237,230,.35);
+  background: rgba(166,107,79,.08);
+}
+.btn--dark .btn-icon {
+  border-color: rgba(240,237,230,.28);
+  background: rgba(166,107,79,.16);
+}
+.hero-actions .btn {
+  min-width: 178px;
+  padding-left: 21px;
+  padding-right: 52px;
+}
+.contact-form .btn {
+  min-width: 210px;
+  padding-left: 24px;
+  padding-right: 56px;
+}
+.mobile-booking {
+  justify-content: center !important;
+  padding-left: 54px !important;
+  padding-right: 54px !important;
+}
+.mobile-booking .btn-icon {
+  right: 16px;
+  border-color: rgba(23,23,23,.3);
+}
+
+/* Refined play buttons in the video cards. */
+.video-card .play {
+  font-size: 0;
+  padding: 0;
+  border-color: rgba(231,199,183,.65);
+  background: rgba(10,10,10,.18);
+}
+.video-card .play::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 9px solid var(--ivory);
+  margin-left: 3px;
+  filter: drop-shadow(0 0 8px rgba(166,107,79,.38));
+}
+.video-card .play::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(166,107,79,.32);
+  transform: scale(.78);
+  opacity: 0;
+  transition: transform .35s ease, opacity .35s ease;
+}
+.video-card:hover .play::after {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* A gentle trace of colour in the hero without losing the monochrome identity. */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 49% 44%, rgba(166,107,79,.10), transparent 25%),
+    linear-gradient(110deg, transparent 43%, rgba(166,107,79,.035) 50%, transparent 57%);
+  mix-blend-mode: screen;
+}
+.eyebrow {
+  color: rgba(238,216,205,.88);
+}
+.names {
+  text-shadow: 0 3px 24px rgba(0,0,0,.7);
+}
+
+/* MOBILE: both portraits stay readable as two deliberate panels. */
+@media (max-width: 760px) {
+  .site-header {
+    padding: 0 16px;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .brand-word {
+    font-size: 26px;
+  }
+  .luca-logo-mark {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero {
+    min-height: 790px;
+    height: 100svh;
+    background: #070707;
+  }
+  .hero-photo {
+    width: 100%;
+    height: 52.5%;
+    filter: grayscale(1) contrast(1.04) brightness(.94);
+    animation-duration: 11s;
+  }
+  .hero-photo--duca {
+    top: 0;
+    bottom: auto;
+    background-size: cover;
+    background-position: 44% 38%;
+    clip-path: polygon(0 0,100% 0,100% 88%,0 100%);
+  }
+  .hero-photo--vanja {
+    top: auto;
+    bottom: 0;
+    background-size: cover;
+    background-position: 52% 24%;
+    clip-path: polygon(0 12%,100% 0,100% 100%,0 100%);
+  }
+  .hero-photo::after {
+    background: linear-gradient(to bottom, rgba(0,0,0,.04), rgba(0,0,0,.18));
+  }
+  .hero-shade {
+    background:
+      linear-gradient(to bottom,
+        rgba(0,0,0,.04) 0%,
+        rgba(0,0,0,.10) 31%,
+        rgba(0,0,0,.62) 44%,
+        rgba(0,0,0,.78) 52%,
+        rgba(0,0,0,.60) 61%,
+        rgba(0,0,0,.12) 82%,
+        rgba(0,0,0,.20) 100%);
+  }
+  .hero::after {
+    background:
+      radial-gradient(circle at 18% 28%, rgba(166,107,79,.075), transparent 27%),
+      radial-gradient(circle at 82% 75%, rgba(166,107,79,.06), transparent 25%);
+  }
+  .hero-center {
+    top: 50%;
+    width: min(90vw, 390px);
+    transform: translate(-50%,-48%);
+    padding: 8px 10px 10px;
+  }
+  .reveal--hero {
+    transform: translate(-50%, calc(-48% + 28px));
+  }
+  .reveal--hero.is-visible {
+    transform: translate(-50%,-48%);
+  }
+  .hero-logo-mark {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 0;
+  }
+  .hero-logo-mark + h1 {
+    margin-top: -5px;
+  }
+  .hero h1 {
+    font-size: clamp(74px, 22vw, 92px);
+    line-height: .78;
+  }
+  .hero h1::after {
+    bottom: -9px;
+    width: 54%;
+    left: 23%;
+  }
+  .eyebrow {
+    margin-bottom: 3px;
+    font-size: 9px;
+    letter-spacing: .28em;
+  }
+  .names {
+    margin-top: 18px;
+    font-size: 29px;
+  }
+  .ornament {
+    margin: 9px 0 8px;
+  }
+  .hero-copy {
+    font-size: 16px;
+    line-height: 1.22;
+    max-width: 315px;
+    margin-bottom: 17px;
+  }
+  .hero-actions {
+    gap: 8px;
+  }
+  .hero-actions .btn {
+    width: min(278px, 82vw);
+    min-height: 46px;
+  }
+  .musician-tag--left {
+    top: 15%;
+    left: 16px;
+  }
+  .musician-tag--right {
+    top: auto;
+    bottom: 15%;
+    right: 16px;
+  }
+  .musician-tag strong {
+    font-size: 24px;
+    text-shadow: 0 2px 15px rgba(0,0,0,.75);
+  }
+  .musician-tag span {
+    background: rgba(0,0,0,.1);
+    text-shadow: 0 2px 10px rgba(0,0,0,.8);
+  }
+  .scroll-cue {
+    bottom: 8px;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero {
+    min-height: 760px;
+  }
+  .hero-photo--duca {
+    background-position: 44% 35%;
+  }
+  .hero-photo--vanja {
+    background-position: 51% 22%;
+  }
+  .hero-center {
+    top: 50%;
+    width: 92vw;
+  }
+  .hero-logo-mark {
+    width: 50px;
+    height: 50px;
+  }
+  .hero h1 {
+    font-size: 78px;
+  }
+  .hero-copy {
+    font-size: 15px;
+    max-width: 300px;
+  }
+  .hero-actions .btn {
+    width: min(264px, 84vw);
+  }
+  .musician-tag--left {
+    top: 14%;
+  }
+  .musician-tag--right {
+    bottom: 14%;
+  }
+}
+
+@keyframes lucaDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes lucaPulse {
+  0%, 100% { transform: scale(.9); opacity: .68; }
+  50% { transform: scale(1.25); opacity: 1; }
+}
+@keyframes lucaOrbit {
+  to { transform: rotate(360deg); }
+}
+@keyframes lucaUnderline {
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luca-logo-mark .logo-stroke,
+  .hero-logo-mark .logo-stroke {
+    stroke-dashoffset: 0;
+  }
+  .luca-logo-mark .logo-accent,
+  .hero-logo-mark .logo-accent,
+  .luca-logo-mark .logo-orbit,
+  .hero-logo-mark .logo-orbit,
+  .hero h1::after {
+    animation: none !important;
+  }
+  .hero h1::after {
+    transform: scaleX(1);
+  }
+}
